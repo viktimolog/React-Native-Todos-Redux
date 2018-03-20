@@ -4,22 +4,22 @@ import {MODES} from '../constants';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const AppFooter = ({mode = MODES.ALL, setMode = () => {}}) => (
+const AppFooter = ({mode = MODES.ALL, todos = [], setMode = () => {}}) => (
     <Footer style={{height: 70}}>
       <FooterTab>
       <Button badge vertical
       disabled={mode === MODES.ALL}
       onPress={() => setMode(MODES.ALL)}
       >
-        <Badge><Text>51</Text></Badge>
+        <Badge><Text>{todos.length}</Text></Badge>
         <Icon name="tasks" size={20} color="red"/>
-        <Text>Active</Text>
+        <Text>ALL</Text>
       </Button>
       <Button badge vertical
       disabled={mode === MODES.ACTIVE}
       onPress={() => setMode(MODES.ACTIVE)}
       >
-          <Badge><Text>51</Text></Badge>
+          <Badge><Text>{todos.filter(todo => todo.completed === false).length}</Text></Badge>
           <Icon name="tasks" size={20} color="yellow"/>
           <Text>Active</Text>
         </Button>
@@ -27,7 +27,7 @@ const AppFooter = ({mode = MODES.ALL, setMode = () => {}}) => (
         disabled={mode === MODES.COMPLETED}
         onPress={() => setMode(MODES.COMPLETED)}
         >
-          <Badge><Text>2</Text></Badge>
+          <Badge><Text>{todos.filter(todo => todo.completed === true).length}</Text></Badge>
           <Icon name="tasks" size={20} color="green"/>
           <Text>Completed</Text>
         </Button>

@@ -20,10 +20,13 @@ onPress={() => toggleTodo(todo.id)}
 />
 
 <TouchableOpacity
+style={styles.containerText}
 // onPress={this.handleDelete}
 >
 
-<Text style={todo.completed ? styles.textCompleted : styles.text}>{todo.text}</Text>
+<Text style={todo.completed ? styles.textCompleted : styles.text}>
+{todo.text}
+</Text>
 </TouchableOpacity>
 
 <TouchableOpacity onPress={() => delTodo(todo.id)}
@@ -36,12 +39,21 @@ onPress={() => toggleTodo(todo.id)}
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    width: '100%',
     paddingLeft: 20,
     paddingRight: 20,
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
     height: 72
+  },
+  containerText: {
+    flex: 1,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingLeft: 25,
+    paddingRight: 10
   },
   textCompleted:{
     fontSize: 16,

@@ -5,33 +5,26 @@ import {setMode, addTodo, delTodo, toggleTodo} from '../actions';
 import PropTypes from 'prop-types';
 
 const mapStateToProps = (state) => ({
-	mode: state.mode,
-	todos: state.todos
+    mode: state.mode,
+    todos: state.todos
 });
 
 const AppFooterContainer = ({mode, todos, setMode}) => (
-	<Footer mode={mode} todos={todos} setMode={setMode}/>
+    <Footer mode={mode} todos={todos} setMode={setMode}/>
 );
 
-// const AppFooterContainer = ({mode, setMode}) => {
-// 	alert('Render AppFooterContainer');
-// return(
-// 	<Footer mode={mode} setMode={setMode}/>
-// );
-// }
-
 AppFooterContainer.propTypes = {
-	mode: PropTypes.string,
-	todos:PropTypes.array,
-	setMode: PropTypes.func
+    mode: PropTypes.string,
+    todos: PropTypes.array,
+    setMode: PropTypes.func
 };
 
 export default connect(
-	mapStateToProps,
-	{
-		setMode,
-		delTodo,
-		addTodo,
-		toggleTodo
-	}
+    mapStateToProps,
+    {
+        setMode,
+        delTodo,
+        addTodo,
+        toggleTodo
+    }
 )(AppFooterContainer);

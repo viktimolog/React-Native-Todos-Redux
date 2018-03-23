@@ -14,15 +14,15 @@ import {MODES} from './src/constants';
 const initialState = {
 	mode: MODES.ALL,
   todos: [
-  {id: Math.random(), text: 'Milk 1l', completed: false},
-  {id: Math.random(), text: 'Eggs Medium 12 pack', completed: true},
-  {id: Math.random(), text: 'Fresh Basil', completed: false},
-  {id: Math.random(), text: 'Wholegrain Bread 1 pkg', completed: true},
-  {id: Math.random(), text: 'Ground Coffee 200g', completed: true},
-  {id: Math.random(), text: 'Red Wine', completed: false},
-  {id: Math.random(), text: 'Mozzarella Cheese 150g', completed: false},
-  {id: Math.random(), text: 'Orange Juice 1l', completed: true},
-  {id: Math.random(), text: 'Tomatoes', completed: false}
+  {id: Math.random(), text: 'Milk 1l', completed: false, editable: false},
+  {id: Math.random(), text: 'Eggs Medium 12 pack', completed: true, editable: false},
+  {id: Math.random(), text: 'Fresh Basil', completed: false, editable: false},
+  {id: Math.random(), text: 'Wholegrain Bread 1 pkg', completed: true, editable: false},
+  {id: Math.random(), text: 'Ground Coffee 200g', completed: true, editable: false},
+  {id: Math.random(), text: 'Red Wine', completed: false, editable: false},
+  {id: Math.random(), text: 'Mozzarella Cheese 150g', completed: false, editable: false},
+  {id: Math.random(), text: 'Orange Juice 1l', completed: true, editable: false},
+  {id: Math.random(), text: 'Tomatoes', completed: false, editable: false}
 ]
 };
 

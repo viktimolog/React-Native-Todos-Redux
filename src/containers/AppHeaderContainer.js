@@ -9,7 +9,7 @@ const AppHeaderContainer = ({addTodo}) => (
 );
 
 AppHeaderContainer.propTypes = {
-    addTodo: PropTypes.func
+    addTodo: PropTypes.func.isRequired
 };
 
 export default connect(

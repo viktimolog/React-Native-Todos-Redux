@@ -1,11 +1,11 @@
 import React from 'react';
 import Todos from '../components/Todos';
 import {connect} from 'react-redux';
-import {setMode, delTodo, addTodo, toggleTodo, editTodoSave, editTodoMode} from '../actions';
-import PropTypes from 'prop-types';
+import {delTodo, toggleTodo, editTodoSave, editTodoMode} from '../actions';
 import {MODES} from '../constants';
+import PropTypes from 'prop-types';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
     todos: state.todos.filter(todo => {
         if (state.mode === MODES.ALL) {
             return true;
@@ -24,15 +24,20 @@ const TodosContainer = ({todos, delTodo, toggleTodo, editTodoSave, editTodoMode}
         delTodo={delTodo}
         toggleTodo={toggleTodo}
         editTodoSave={editTodoSave}
-        editTodoMode={editTodoMode}
-    />
-);
+        editTodoMode={editTodoMode}/>);
+
+TodosContainer.propTypes = {
+    todos: PropTypes.array.isRequired,
+    delTodo: PropTypes.func.isRequired,
+    toggleTodo: PropTypes.func.isRequired,
+    editTodoSave: PropTypes.func.isRequired,
+    editTodoMode: PropTypes.func.isRequired
+};
 
 export default connect(
     mapStateToProps,
     {
         delTodo,
-        addTodo,
         toggleTodo,
         editTodoSave,
         editTodoMode

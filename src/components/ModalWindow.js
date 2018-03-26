@@ -42,6 +42,8 @@ export default class ModalWindow extends Component {
     }
 
     render() {
+        const charactersLeft = `Characters left ${this.state.maxLength - this.state.newItemText.length}`;
+
         return (
             <View style={{paddingTop: 95}}>
                 <Modal
@@ -52,39 +54,29 @@ export default class ModalWindow extends Component {
                         this.setModalVisible(false);
                     }}>
                     <View>
-
                         <View style={styles.container}>
-
                             <TouchableHighlight onPress={() => {
                                 this.setModalVisible(!this.state.modalVisible);
                             }}>
                                 <Text style={styles.text}>Cancel</Text>
                             </TouchableHighlight>
-
                             <Text style={styles.text}>Add new list item</Text>
-
                             <TouchableHighlight onPress={this.addNewItemHandler}>
                                 <Text style={styles.text}>Done</Text>
                             </TouchableHighlight>
-
                         </View>
-
                         <View style={styles.containerText}>
                             <Text style={styles.textCenter}>Add new list item</Text>
                         </View>
-
                         <View style={styles.containerInput}>
-
                             <TextInput
                                 style={styles.text}
                                 autoFocus={true}
                                 onChangeText={this.newItemTextHandler}
-                                value={this.state.newItemText}
-                            >
+                                value={this.state.newItemText}>
                             </TextInput>
-
-                            <Text style={styles.textRight}>Characters left{"\u00A0"}
-                                {this.state.maxLength - this.state.newItemText.length}
+                            <Text style={styles.textRight}>
+                                {charactersLeft}
                             </Text>
                         </View>
 

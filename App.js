@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Header from './src/components/Header';
-import Footer from './src/components/Footer';
 import { Container } from 'native-base';
 import { StatusBar } from 'react-native';
 import AppFooterContainer from './src/containers/AppFooterContainer';

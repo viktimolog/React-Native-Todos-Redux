@@ -1,6 +1,7 @@
 import React from 'react';
 import {Header, Body, Title} from 'native-base';
 import {StyleSheet} from 'react-native';
+import PropTypes from 'prop-types';
 
 import ModalWindow from './ModalWindow';
 
@@ -27,5 +28,9 @@ const styles = StyleSheet.create({
         height: 72
     }
 });
+
+AppHeader.propTypes = {
+    addTodo: PropTypes.func.isRequired
+};
 
 export default AppHeader;

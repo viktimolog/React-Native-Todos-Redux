@@ -13,7 +13,7 @@ export default class ModalWindow extends Component {
     state = {
         modalVisible: false,
         newItemText: '',
-        maxLength: 80
+        maxLength: 36
     };
 
     addNewItemHandler = () => {

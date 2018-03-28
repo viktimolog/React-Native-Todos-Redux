@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {
     StyleSheet,
-    Text,
     View,
     TouchableOpacity,
     TextInput
@@ -13,12 +12,22 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 export default class Todo extends Component {
     constructor(props) {
         super(props);
-        this.state = {text: props.todo.text};
+        this.state = {
+            text: props.todo.text,
+            maxLength: 46
+        };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            text: nextProps.todo.text
+        })
     }
 
     componentDidUpdate() {
-        if (this.props.todo.editable)
+        if (this.props.todo.editable) {
             this.itemInput.focus();
+        }
     }
 
     onSubmit = () => {
@@ -37,14 +46,18 @@ export default class Todo extends Component {
                     style={styles.containerText}
                     onPress={() => editTodoMode(todo.id)}>
                     <TextInput
+                        multiline={true}
+                        numberOfLines={3}
                         style={todo.completed
                             ? styles.textCompleted
                             : styles.text}
                         value={todo.editable
                             ? this.state.text
-                            : todo.text}
+                            : todo.text.slice(0,)}
                         editable={todo.editable}
-                        onChangeText={text => this.setState({text})}
+                        onChangeText={text => text.length <= this.state.maxLength
+                            ? this.setState({text})
+                            : null}
                         onSubmitEditing={this.onSubmit}
                         onBlur={todo.editable
                             ? () => editTodoMode(todo.id)
@@ -71,7 +84,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        height: 72
+        height: 80
     },
     containerText: {
         flex: 1,

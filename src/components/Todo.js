@@ -48,6 +48,7 @@ export default class Todo extends Component {
                     <TextInput
                         multiline={true}
                         numberOfLines={3}
+                        blurOnSubmit ={true}
                         style={todo.completed
                             ? styles.textCompleted
                             : styles.text}
@@ -60,8 +61,8 @@ export default class Todo extends Component {
                             : null}
                         onSubmitEditing={this.onSubmit}
                         onBlur={todo.editable
-                            ? () => editTodoMode(todo.id)
-                            : null}
+                           ? () => editTodoMode(todo.id)
+                           : null}
                         ref={input => {
                             this.itemInput = input;
                         }}>

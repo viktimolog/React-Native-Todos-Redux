@@ -16,7 +16,7 @@ const AppFooterContainer = ({todos, mode, setMode}) => (
             setMode={setMode}/>);
 
 AppFooterContainer.propTypes = {
-    // todos: PropTypes.array.isRequired,
+    todos: PropTypes.object.isRequired,
     mode: PropTypes.string.isRequired,
     setMode: PropTypes.func.isRequired
 };

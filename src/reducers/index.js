@@ -39,10 +39,8 @@ export default (state = [], action) => {
                     id: Math.floor(Date.now() / 1000),
                     text: dd + '.' + mm + '.' + yy
                     + ': ' + action.text,
-                    completed:
-                        false,
-                    editable:
-                        false
+                    completed: false,
+                    editable: false
                 })
             });
             return {
@@ -64,7 +62,7 @@ export default (state = [], action) => {
 
         case EDIT_TODO_MODE: {
             realm.write(() => {
-                realm.objectForPrimaryKey('Task', action.id).editable =
+                realm.objectForPrimaryKey('Task', action.id).editable = 
                     !realm.objectForPrimaryKey('Task', action.id).editable
             });
             return {
@@ -76,8 +74,8 @@ export default (state = [], action) => {
         case EDIT_TODO_SAVE: {
             realm.write(() => {
                 realm.objectForPrimaryKey('Task', action.id).text = action.text;
-                realm.objectForPrimaryKey('Task', action.id).editable =
-                    !realm.objectForPrimaryKey('Task', action.id).editable
+                realm.objectForPrimaryKey('Task', action.id).editable = 
+		        !realm.objectForPrimaryKey('Task', action.id).editable
             });
             return {
                 ...state,

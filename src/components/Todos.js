@@ -4,7 +4,13 @@ import {Content, Text} from 'native-base';
 import Todo from './Todo';
 import PropTypes from 'prop-types';
 
-const Todos = ({todos = [], editTodoMode = () => {}, editTodoSave = () => {}, delTodo = () => {}, toggleTodo = () => {}}) => (
+const Todos = ({
+                   todos = [],
+                   editTodoMode = () => {},
+                   editTodoSave = () => {},
+                   delTodo = () => {},
+                   toggleTodo = () => {}
+               }) => (
     <Content>
         <ScrollView>
             {

@@ -6,7 +6,10 @@ import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const AppFooter = ({
-                       mode = MODES.ALL, todos = [], setMode = () => {}
+                       mode = MODES.ALL,
+                       todos = [],
+                       setMode = () => {
+                       }
                    }) => (
     <Footer style={{height: 70}}>
         <FooterTab>
@@ -18,7 +21,10 @@ const AppFooter = ({
                         {todos.length}
                     </Text>
                 </Badge>
-                <Icon name="tasks" size={20} color="red"/>
+                <Icon
+                    name="tasks"
+                    size={20}
+                    color="red"/>
                 <Text>ALL</Text>
             </Button>
             <Button badge vertical
@@ -29,7 +35,10 @@ const AppFooter = ({
                         {todos.filter(todo => todo.completed === false).length}
                     </Text>
                 </Badge>
-                <Icon name="tasks" size={20} color="yellow"/>
+                <Icon
+                    name="tasks"
+                    size={20}
+                    color="yellow"/>
                 <Text>Active</Text>
             </Button>
             <Button badge vertical
@@ -40,7 +49,10 @@ const AppFooter = ({
                         {todos.filter(todo => todo.completed === true).length}
                     </Text>
                 </Badge>
-                <Icon name="tasks" size={20} color="green"/>
+                <Icon
+                    name="tasks"
+                    size={20}
+                    color="green"/>
                 <Text>Completed</Text>
             </Button>
         </FooterTab>

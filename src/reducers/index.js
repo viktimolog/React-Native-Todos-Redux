@@ -1,4 +1,5 @@
 import {SET_MODE, DEL_TODO, ADD_TODO, TOOGLE_TODO, EDIT_TODO_SAVE, EDIT_TODO_MODE} from '../actions/actionTypes';
+import realm from '../realm/RealmSchemas';
 
 export default (state = [], action) => {
     switch (action.type) {
@@ -11,84 +12,60 @@ export default (state = [], action) => {
         }
 
         case DEL_TODO: {
+            realm.write(() => {
+                const deletingTodo = realm.objectForPrimaryKey('Task', action.id);
+                realm.delete(deletingTodo);
+            });
             return {
                 ...state,
-                todos: state.todos.filter(todo => todo.id !== action.id)
+                todos: realm.objects('Task').sorted('id')
             }
         }
 
         case ADD_TODO: {
+            realm.write(() => {
+                realm.create('Task', {
+                    id: Math.floor(Date.now() / 1000),
+                    text: action.text,
+                    completed: false,
+                    editable: false
+                });
+            });
             return {
                 ...state,
-                todos: [
-                    {id: Math.random(), text: action.text, completed: false, editable: false},
-                    ...state.todos]
+                todos: realm.objects('Task').sorted('id')
             }
         }
 
         case TOOGLE_TODO: {
-            const selectedTodo = state.todos.filter(todo => todo.id === action.id)[0];
-
-            const index = state.todos.indexOf(selectedTodo);
-
-            const changedTodo = {
-                id: selectedTodo.id,
-                text: selectedTodo.text,
-                completed: !selectedTodo.completed,
-                editable: selectedTodo.editable
-            };
-
-            let updatedArrTodos = state.todos.filter(todo => todo.id !== action.id);
-
-            updatedArrTodos.splice(index, 0, changedTodo);
-
+            realm.write(() => {
+                realm.objectForPrimaryKey('Task', action.id).completed =
+                    !realm.objectForPrimaryKey('Task', action.id).completed
+            });
             return {
                 ...state,
-                todos: updatedArrTodos
+                todos: realm.objects('Task').sorted('id')
             }
         }
 
         case EDIT_TODO_MODE: {
-            const selectedTodo = state.todos.filter(todo => todo.id === action.id)[0];
-
-            const index = state.todos.indexOf(selectedTodo);
-
-            const changedTodo = {
-                id: selectedTodo.id,
-                text: selectedTodo.text,
-                completed: selectedTodo.completed,
-                editable: !selectedTodo.editable
-            };
-
-            let updatedArrTodos = state.todos.filter(todo => todo.id !== action.id);
-
-            updatedArrTodos.splice(index, 0, changedTodo);
-
+            realm.write(() => {
+                realm.objectForPrimaryKey('Task', action.id).editable =
+                    !realm.objectForPrimaryKey('Task', action.id).editable
+            });
             return {
                 ...state,
-                todos: updatedArrTodos
+                todos: realm.objects('Task').sorted('id')
             }
         }
 
         case EDIT_TODO_SAVE: {
-            let selectedTodo = state.todos.filter(todo => todo.id === action.id)[0];
-
-            let index = state.todos.indexOf(selectedTodo);
-
-            let changedTodo = {
-                id: selectedTodo.id,
-                text: action.text,
-                completed: selectedTodo.completed,
-                editable: !selectedTodo.editable
-            };
-
-            let updatedArrTodos = state.todos.filter(todo => todo.id !== action.id);
-
-            updatedArrTodos.splice(index, 0, changedTodo);
-
+            realm.write(() => {
+                realm.objectForPrimaryKey('Task', action.id).text = action.text
+            });
             return {
                 ...state,
-                todos: updatedArrTodos
+                todos: realm.objects('Task').sorted('id')
             }
         }
 

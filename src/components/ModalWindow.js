@@ -17,13 +17,10 @@ export default class ModalWindow extends Component {
     };
 
     addNewItemHandler = () => {
-        if (this.state.newItemText.trim() === '') {
-            return;
+        if (this.state.newItemText.trim() !== '') {
+            this.props.addTodo(this.state.newItemText);
+            this.setModalVisible(!this.state.modalVisible);
         }
-
-        this.props.addTodo(this.state.newItemText);
-
-        this.setModalVisible(!this.state.modalVisible);
     }
 
     newItemTextHandler = val => {
@@ -79,7 +76,6 @@ export default class ModalWindow extends Component {
                                 {charactersLeft}
                             </Text>
                         </View>
-
                     </View>
                 </Modal>
 
@@ -106,7 +102,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         elevation: 8,
-        marginBottom: 96,//94
+        marginBottom: 96,
         zIndex: 10
     },
     addButtonText: {

@@ -9,16 +9,15 @@ const mapStateToProps = state => ({
     todos: state.todos
 });
 
-const AppFooterContainer = ({mode, todos, setMode}) => (
-    <Footer
-        mode={mode}
-        todos={todos}
-        setMode={setMode}/>
-);
+const AppFooterContainer = ({todos, mode, setMode}) => (
+        <Footer
+            todos={todos}
+            mode={mode}
+            setMode={setMode}/>);
 
 AppFooterContainer.propTypes = {
+    // todos: PropTypes.array.isRequired,
     mode: PropTypes.string.isRequired,
-    todos: PropTypes.array.isRequired,
     setMode: PropTypes.func.isRequired
 };
 

@@ -76,13 +76,11 @@ const styles = StyleSheet.create({
     containerText: {
         flex: 1,
         justifyContent: 'space-between',
-        // alignItems: 'center', //bad for ios
-        paddingLeft: 45,
-        paddingRight: 20
+        marginLeft: 30,
+        marginRight: 20
     },
     textCompleted: {
         fontSize: 16,
-        textDecorationLine: 'line-through',
         color: 'lightgray'
     },
     text: {

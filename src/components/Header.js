@@ -11,9 +11,7 @@ const AppHeader = ({addTodo}) => (
         <Title>
             React Native Todos Redux
         </Title>
-
         <ModalWindow addTodo={addTodo}/>
-
         </Body>
     </Header>
 );

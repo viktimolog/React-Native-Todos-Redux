@@ -5,8 +5,8 @@ import {setMode} from '../actions';
 import PropTypes from 'prop-types';
 
 const mapStateToProps = state => ({
-    mode: state.mode,
-    todos: state.todos
+    mode: state.modesReducer.mode,
+    todos: state.todosReducer.todos
 });
 
 const AppFooterContainer = ({todos, mode, setMode}) => (

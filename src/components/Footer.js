@@ -24,8 +24,8 @@ const AppFooter = ({
                 <Icon
                     name="tasks"
                     size={20}
-                    color="red"/>
-                <Text>ALL</Text>
+                    color={mode === MODES.ALL ? 'green' : '#ccc'}/>
+                <Text style={{color: mode === MODES.ALL ? 'green' : '#ccc'}}>ALL</Text>
             </Button>
             <Button badge vertical
                     disabled={mode === MODES.ACTIVE}
@@ -36,10 +36,10 @@ const AppFooter = ({
                     </Text>
                 </Badge>
                 <Icon
-                    name="tasks"
+                    name="rss"
                     size={20}
-                    color="yellow"/>
-                <Text>Active</Text>
+                    color={mode === MODES.ACTIVE ? 'green' : '#ccc'}/>
+                <Text style={{color: mode === MODES.ACTIVE ? 'green' : '#ccc'}}>Active</Text>
             </Button>
             <Button badge vertical
                     disabled={mode === MODES.COMPLETED}
@@ -50,10 +50,10 @@ const AppFooter = ({
                     </Text>
                 </Badge>
                 <Icon
-                    name="tasks"
+                    name="check"
                     size={20}
-                    color="green"/>
-                <Text>Completed</Text>
+                    color={mode === MODES.COMPLETED ? 'green' : '#ccc'}/>
+                <Text style={{color: mode === MODES.COMPLETED ? 'green' : '#ccc'}}>Completed</Text>
             </Button>
         </FooterTab>
     </Footer>

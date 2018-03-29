@@ -5,18 +5,22 @@ import {delTodo, toggleTodo, editTodoSave, editTodoMode} from '../actions';
 import {MODES} from '../constants';
 import PropTypes from 'prop-types';
 
-const mapStateToProps = state => ({
-    todos: state.todos.filter(todo => {
-        if (state.mode === MODES.ALL) {
-            return true;
-        } else if (state.mode === MODES.COMPLETED) {
-            return todo.completed;
-        } else if (state.mode === MODES.ACTIVE) {
-            return !todo.completed;
-        }
-    }),
-    mode: state.mode
-});
+const mapStateToProps = state => {
+    const {todos} = state.todosReducer;
+    const {mode} = state.modesReducer;
+    return ({
+        todos: todos.filter(todo => {
+            if (mode === MODES.ALL) {
+                return true;
+            } else if (mode === MODES.COMPLETED) {
+                return todo.completed;
+            } else if (mode === MODES.ACTIVE) {
+                return !todo.completed;
+            }
+        }),
+        mode: mode
+    });
+}
 
 const TodosContainer = ({todos, delTodo, toggleTodo, editTodoSave, editTodoMode}) => (
     <Todos

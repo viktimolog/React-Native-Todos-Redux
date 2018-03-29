@@ -101,9 +101,7 @@ const styles = StyleSheet.create({
         borderColor: '#ccc',
         alignItems: 'center',
         justifyContent: 'center',
-        elevation: 8,
         marginBottom: 96,
-        zIndex: 10
     },
     addButtonText: {
         color: '#fff',

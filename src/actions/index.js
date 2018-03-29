@@ -1,4 +1,11 @@
-import {SET_MODE, DEL_TODO, ADD_TODO, TOOGLE_TODO, EDIT_TODO_MODE, EDIT_TODO_SAVE} from './actionTypes';
+import {
+    SET_MODE,
+    DEL_TODO,
+    ADD_TODO,
+    TOOGLE_TODO,
+    EDIT_TODO_MODE,
+    EDIT_TODO_SAVE
+} from './actionTypes';
 
 export const setMode = mode => ({type: SET_MODE, mode});
 

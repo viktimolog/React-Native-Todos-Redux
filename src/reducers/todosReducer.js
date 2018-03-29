@@ -1,4 +1,10 @@
-import {DEL_TODO, ADD_TODO, TOOGLE_TODO, EDIT_TODO_SAVE, EDIT_TODO_MODE} from '../actions/actionTypes';
+import {
+    DEL_TODO,
+    ADD_TODO,
+    TOOGLE_TODO,
+    EDIT_TODO_SAVE,
+    EDIT_TODO_MODE
+} from '../actions/actionTypes';
 import realm from '../realm/RealmSchemas';
 
 const initialState = {

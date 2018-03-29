@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Container} from 'native-base';
 import {StatusBar} from 'react-native';
 import AppFooterContainer from './src/containers/AppFooterContainer';

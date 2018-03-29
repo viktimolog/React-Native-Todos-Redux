@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {ScrollView} from 'react-native';
-import {Content, Text} from 'native-base';
+import {Content} from 'native-base';
 import Todo from './Todo';
 import PropTypes from 'prop-types';
 

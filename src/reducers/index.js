@@ -1,10 +1,10 @@
-import {combineReducers} from 'redux';
-import todosReducer from './todosReducer';
-import modesReducer from './modesReducer';
+import { combineReducers } from 'redux'
+import todosReducer from './todosReducer'
+import modesReducer from './modesReducer'
 
 const rootReducer = combineReducers({
-    todosReducer,
-    modesReducer
-});
+  todosReducer,
+  modesReducer
+})
 
-export default rootReducer;
+export default rootReducer

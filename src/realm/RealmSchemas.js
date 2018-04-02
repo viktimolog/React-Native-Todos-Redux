@@ -1,20 +1,20 @@
-import Realm from 'realm';
+import Realm from 'realm'
 
 const TaskSchema = {
-    name: 'Task',
-    primaryKey: 'id',
-    properties: {
-        id: 'int',
-        text: {type: 'string', indexed: true},
-        completed: {type: 'bool', default: false},
-        editable: {type: 'bool', default: false}
-    }
-};
+  name: 'Task',
+  primaryKey: 'id',
+  properties: {
+    id: 'int',
+    text: {type: 'string', indexed: true},
+    completed: {type: 'bool', default: false},
+    editable: {type: 'bool', default: false}
+  }
+}
 
 export const databaseOptions = {
-    path: 'todosReactNative.realm',
-    schema: [TaskSchema],
-    schemaVersion: 0,
-};
+  path: 'todosReactNative.realm',
+  schema: [TaskSchema],
+  schemaVersion: 0,
+}
 
-export default new Realm(databaseOptions);
+export default new Realm(databaseOptions)

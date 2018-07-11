@@ -28,7 +28,10 @@ const Todos = ({
 )
 
 Todos.propTypes = {
-  todos: PropTypes.array.isRequired,
+  todos: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object
+  ]),
   delTodo: PropTypes.func.isRequired,
   toggleTodo: PropTypes.func.isRequired,
   editTodoSave: PropTypes.func.isRequired,
